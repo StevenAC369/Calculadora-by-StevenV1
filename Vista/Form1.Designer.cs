@@ -120,6 +120,7 @@
             this.button18.TabIndex = 88;
             this.button18.Text = "+/-";
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // btn_restar
             // 

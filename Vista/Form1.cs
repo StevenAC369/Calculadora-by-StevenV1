@@ -136,5 +136,27 @@ namespace Vista
         {
             operacione.Text = operacione.Text + "3";
         }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            if (double.Parse(resultado.Text) > 0)
+            {
+                resultado.ReadOnly = false;
+                resultado.Text = "-" + resultado.Text;
+                resultado.ReadOnly = true;
+            }
+            else if (double.Parse(resultado.Text) < 0)
+            {
+                resultado.ReadOnly = false;
+                resultado.Text = resultado.Text.TrimStart('-');
+                resultado.ReadOnly = true;
+            }
+            else if (double.Parse(resultado.Text) == 0)
+            {
+                resultado.ReadOnly = false;
+                resultado.Text = "0";
+                resultado.ReadOnly = true;
+            }
+        }
     }
 }
