@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Entidad;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Entidad;
 namespace Datos
 {
     public class Coleccion
@@ -32,15 +34,21 @@ namespace Datos
         }
         public void calcular_resultado(string operacion)
         {
+            string patron = @"[0-9]+([.,][0-9]+)?";
+
+            MatchCollection numeros = Regex.Matches(operacion, patron);
             char[] delimitadores = { '+', '-', '*', '/', '%' };
-            List<double> numeros = new List<double>();
-            numeros = operacion.Split(delimitadores).Select(double.Parse).ToList();
             List<char> operadores = new List<char>();
             operadores = operacion.Where(c => delimitadores.Contains(c)).ToList();
-            for (int i = 0; i < numeros.Count; i++)
+            foreach (Match valor_obtenido in numeros)
             {
-                agregarDigito(new Digitos { Valor = numeros[i] });
+                Console.WriteLine("Valor obtenido: " + valor_obtenido.Value);
+                double valor = Double.Parse(valor_obtenido.Value, CultureInfo.InvariantCulture);
+                Console.WriteLine("Valor obtenido: " + valor.ToString());
+                agregarDigito(new Digitos { Valor = valor });
+
             }
+
             for (int i = 0; i < operadores.Count; i++)
             {
                 agregarOperador(new Operador { Simbolos = operadores[i] });

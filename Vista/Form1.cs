@@ -131,5 +131,10 @@ namespace Vista
             GuardaHistorial(operacione.Text, operadores.calcular(coleccion));
             resultado.ReadOnly = true;
         }
+
+        private void btn3_Click(object sender, EventArgs e)
+        {
+            operacione.Text = operacione.Text + "3";
+        }
     }
 }
