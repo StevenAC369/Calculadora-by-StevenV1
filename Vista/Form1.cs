@@ -30,6 +30,7 @@ namespace Vista
         {
             resultado.ReadOnly = false;
             operacione.Text = "";
+            resultado.Text = "";
         }
 
         private void btn_residuo_Click(object sender, EventArgs e)
@@ -127,9 +128,18 @@ namespace Vista
             Coleccion coleccion = new Coleccion();
             coleccion.calcular_resultado(operacione.Text);
             Operadores operadores = new Operadores();
-            resultado.Text = operadores.calcular(coleccion).ToString();
-            GuardaHistorial(operacione.Text, operadores.calcular(coleccion));
-            resultado.ReadOnly = true;
+            try
+            {
+                resultado.Text = operadores.calcular(coleccion).ToString();
+                GuardaHistorial(operacione.Text, operadores.calcular(coleccion));
+                resultado.ReadOnly = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al calcular el resultado: " + ex.Message);
+                resultado.Text = "Error";
+            }
+            
         }
 
         private void btn3_Click(object sender, EventArgs e)
