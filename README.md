@@ -4,8 +4,8 @@
 ## Funciones Básicas Artimética 🧮
 - Suma
 - Resta
-- Multiplicacion
-- Division
+- Multiplicación
+- División
 - Residuo (%)
 ## Extras 🧰
 - Historial de Operaciones (Muestra un historial de cálculos de manera temporal)
