@@ -9,4 +9,4 @@
 - Residuo (%)
 ## Extras 🧰
 - Historial de Operaciones (Muestra un historial de cálculos de manera temporal)
-- Cambiar signo de resultado sin afectar el histoiral
+- Cambiar signo de resultado sin afectar el historial
